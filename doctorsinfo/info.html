@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Information</title>
+  <style>
+    /* CSS styling */
+    html{
+      width: 100%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 50px;
+      background: url('background.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+      max-width:1440px;
+    }
+    
+    h1 {
+      color: #333;
+      position: relative;
+      left: 150px;
+    }
+    /* Float four columns side by side */
+    .column {
+      float: left;
+      width: 25%;
+      padding: 0 10px;
+    }
+    
+    .doctor-card {
+      border: 1px solid #282727;
+      border-radius: 46px;
+      padding: 20px;
+      margin-bottom: 20px;
+      width: 926px;
+      display:flex;
+      position: relative;
+      left: 147px;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      background-color: white;
+    }
+    
+    .doctor-card img {
+      border-radius: 50%;
+      width: 100;
+      height: 100px;
+      margin-right: 20px;
+    }
+    
+    .doctor-card h2 {
+      color: #555;
+    }
+    
+    .doctor-card p {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Doctor Information</h1>
+  
+  <div id="doctor-info"></div>
+  
+  <script>
+    // JavaScript code
+    
+    // Sample data for doctors
+    var doctors = [
+      {
+        name: "Dr. John Doe",
+        specialization: "Cardiology",
+        address: "123 Main St, City",
+        phone: "555-1234",
+        email: "johndoe@example.com"
+      },
+      {
+        name: "Dr. Jane Smith",
+        specialization: "Dermatology",
+        address: "456 Elm St, City",
+        phone: "555-5678",
+        email: "janesmith@example.com"
+      },
+      {
+        name: "Dr. Nick Charles",
+        specialization: "Pediatric",
+        address: "sector-3,Alkapuri",
+        phone: "666-1456",
+        email: "veena.123@example.com"
+      },
+      {
+        name:"Dr.jhon Jhonson",
+        specialization:"ENT",
+        address:"34 street, washington",
+        phone:"234-8989",
+        email:"ibrahim.567@example.com",
+      }
+      // Add more doctor objects as needed
+    ];
+    
+    // Array of image URLs
+    var imageUrls = [
+      "OIP.jpeg",
+      "OIP (1).jpeg",
+      "OIP (2).jpeg",
+      "download.jpg"
+      
+      // Add more image URLs as needed
+    ];
+    
+    // Function to get a random image URL from the array
+    function getRandomImageUrl() {
+      var randomIndex = Math.floor(Math.random() * imageUrls.length);
+      return imageUrls[randomIndex];
+    }
+    
+    // Function to display doctor information
+    function displayDoctorInfo() {
+      var doctorInfo = document.getElementById("doctor-info");
+
+      
+      // Loop through the doctors array and create HTML elements
+      doctors.forEach(function(doctor) {
+        var card = document.createElement("div");
+        card.classList.add("doctor-card");
+        
+        var img = document.createElement("img");
+        img.src = getRandomImageUrl();
+        img.alt = "Profile Picture";
+        
+        var heading = document.createElement("h2");
+        heading.textContent = doctor.name;
+        
+        var specialization = document.createElement("p");
+        specialization.textContent = "Specialization: " + doctor.specialization;
+        
+        var address = document.createElement("p");
+        address.textContent = "Address: " + doctor.address;
+        
+        var phone = document.createElement("p");
+        phone.textContent = "Phone: " + doctor.phone;
+        
+        var email = document.createElement("p");
+        email.textContent = "Email: " + doctor.email;
+        
+        card.appendChild(img);
+        card.appendChild(heading);
+        card.appendChild(specialization);
+        card.appendChild(address);
+        card.appendChild(phone);
+        card.appendChild(email);
+        doctorInfo.appendChild(card);
+      });
+    }
+    
+    // Call the displayDoctorInfo function to render the doctor information
+    displayDoctorInfo();
+  </script>
+</body>
+</html>
+
+
+
+
